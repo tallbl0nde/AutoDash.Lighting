@@ -1,0 +1,4 @@
+# Ignore compiled module files
+build/
+module/
+
