@@ -1,13 +1,19 @@
 #include <QGridLayout>
+#include <QSvgWidget>
+#include <QWebEngineView>
 
 #include "LightingFrame.hpp"
 
-LightingFrame::LightingFrame(QWidget * parent) : QWidget(parent) {
-    // Create stacked widget to swap between connect message
-    // and actual stream
-    this->setGeometry(parent->rect());
-    QGridLayout * layout = new QGridLayout(this);
-    layout->setMargin(0);
+LightingFrame::LightingFrame(Template::IHeaderPage * parent) : QWidget(parent->widget()) {
+    parent->setHeadingText("Lighting");
+    parent->setIcon(new QSvgWidget(":/Lighting/icons/light-bulb.svg"));
 
-    // TODO: Implement webview
+    QWebEngineView * webEngineView = new QWebEngineView(parent->widget());
+    webEngineView->setAttribute(Qt::WA_TranslucentBackground);
+    webEngineView->page()->setBackgroundColor(Qt::transparent);
+    webEngineView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    webEngineView->setStyleSheet("background: transparent");
+    webEngineView->setUrl(QUrl("https://localhost:1234"));
+
+    parent->setMainWidget(webEngineView);
 }

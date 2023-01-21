@@ -12,6 +12,10 @@ class LightingModule : public QObject, IModule {
     Q_PLUGIN_METADATA(IID LIGHTINGMODULE_IID)
     Q_INTERFACES(IModule)
 
+    private:
+        // Pointer to resolver.
+        IResolver * resolver;
+
     public:
         // Constructs the module.
         LightingModule();

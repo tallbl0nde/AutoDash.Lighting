@@ -1,7 +1,7 @@
 #ifndef LIGHTINGFRAME_HPP
 #define LIGHTINGFRAME_HPP
 
-#include <QWidget>
+#include "interface/template/IHeaderPage.hpp"
 
 // Main frame for displaying lighting controls
 class LightingFrame : public QWidget {
@@ -9,7 +9,7 @@ class LightingFrame : public QWidget {
 
     public:
         // Constructs the frame.
-        LightingFrame(QWidget * = nullptr);
+        LightingFrame(Template::IHeaderPage * parent);
 };
 
 #endif

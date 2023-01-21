@@ -30,7 +30,7 @@ endif()
 
 add_definitions(-DBOOST_ALL_DYN_LINK)
 
-find_package(Qt5 COMPONENTS Widgets Svg REQUIRED)
+find_package(Qt5 COMPONENTS WebEngineWidgets Widgets Svg REQUIRED)
 
 link_directories(${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
 
@@ -47,9 +47,11 @@ target_include_directories(AutoDash.Lighting PRIVATE
 target_include_directories(AutoDash.Lighting SYSTEM PRIVATE
     ${Qt5Svg_INCLUDE_DIRS}
     ${Qt5Widgets_INCLUDE_DIRS}
+    ${Qt5WebEngineWidgets_INCLUDE_DIRS}
     )
 
 target_link_libraries(AutoDash.Lighting
     ${Qt5Svg_LIBRARIES}
     ${Qt5Widgets_LIBRARIES}
+    ${Qt5WebEngineWidgets_LIBRARIES}
     )

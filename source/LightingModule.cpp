@@ -11,7 +11,7 @@ std::string LightingModule::versionCompiledFor() {
 }
 
 void LightingModule::initialize(IResolver * resolver) {
-
+    this->resolver = resolver;
 }
 
 IModule::Metadata LightingModule::metadata() {
@@ -29,7 +29,9 @@ std::vector<ISettingEntry *> LightingModule::settingEntries(ISettingEntryFactory
 }
 
 QWidget * LightingModule::widget(QWidget * parent) {
-     return new LightingFrame(parent);
+    Template::IHeaderPage * headerPage = this->resolver->templateProvider()->createHeaderPage();
+    LightingFrame * lightingFrame = new LightingFrame(headerPage);
+    return headerPage->widget();
 }
 
 LightingModule::~LightingModule() {
