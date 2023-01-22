@@ -6,6 +6,9 @@
 // Unique identifier for module.
 #define LIGHTINGMODULE_IID "tallbl0nde.AutoDash.LightingModule"
 
+// Forward declare the web server.
+class WebServer;
+
 // AutoDash module for controlling lighting.
 class LightingModule : public QObject, IModule {
     Q_OBJECT
@@ -15,6 +18,9 @@ class LightingModule : public QObject, IModule {
     private:
         // Pointer to resolver.
         IResolver * resolver;
+
+        // Web server.
+        WebServer * webServer;
 
     public:
         // Constructs the module.

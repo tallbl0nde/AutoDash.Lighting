@@ -1,9 +1,12 @@
 #include "LightingFrame.hpp"
 #include "LightingModule.hpp"
+#include "webserver/WebServer.hpp"
 #include "Version.hpp"
 
-LightingModule::LightingModule() : IModule() {
+#define WEBSERVER_PORT 1234
 
+LightingModule::LightingModule() : IModule() {
+    this->webServer = new WebServer(WEBSERVER_PORT);
 }
 
 std::string LightingModule::versionCompiledFor() {
@@ -35,5 +38,5 @@ QWidget * LightingModule::widget(QWidget * parent) {
 }
 
 LightingModule::~LightingModule() {
-
+    delete this->webServer;
 }

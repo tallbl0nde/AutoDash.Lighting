@@ -10,6 +10,8 @@ set(SOURCE_DIR ${ROOT_DIR}/source)
 set(INCLUDE_DIR ${ROOT_DIR}/include)
 set(COMMON_INCLUDE_DIR ${ROOT_DIR}/../../common/include)
 set(COMMON_SOURCE_DIR ${ROOT_DIR}/../../common/source)
+set(LIBHTTPSERVER_INCLUDE_DIR ${ROOT_DIR}/libs/libhttpserver/src)
+set(LIBHTTPSERVER_LIBRARIES ${ROOT_DIR}/libs/libhttpserver/build/src/.libs/libhttpserver.a)
 
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${ROOT_DIR}/module)
 
@@ -18,8 +20,8 @@ set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake_modules/")
-SET(CMAKE_CXX_STANDARD 14)
-set(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} -rdynamic)
+SET(CMAKE_CXX_STANDARD 17)
+set(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} -rdynamic -lmicrohttpd)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS_INIT} -Wall -fPIC")
 set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
 set(CMAKE_CXX_FLAGS_RELEASE "-g -O3")
@@ -34,7 +36,7 @@ find_package(Qt5 COMPONENTS WebEngineWidgets Widgets Svg REQUIRED)
 
 link_directories(${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
 
-file(GLOB_RECURSE source_files ${COMMON_SOURCE_DIR}/*.cpp ${COMMON_INCLUDE_DIR}/*.hpp ${INCLUDE_DIR}/*.hpp ${SOURCE_DIR}/*.cpp ${RESOURCES_DIR}/*.qrc)
+file(GLOB_RECURSE source_files ${COMMON_SOURCE_DIR}/*.cpp ${COMMON_INCLUDE_DIR}/*.hpp ${LIBHTTPSERVER_INCLUDE_DIR}/*.hpp ${INCLUDE_DIR}/*.hpp ${SOURCE_DIR}/*.cpp ${RESOURCES_DIR}/*.qrc)
 
 add_library(AutoDash.Lighting SHARED ${source_files})
 
@@ -42,6 +44,7 @@ target_include_directories(AutoDash.Lighting PRIVATE
     ${CMAKE_CURRENT_BINARY_DIR}
     ${INCLUDE_DIR}
     ${COMMON_INCLUDE_DIR}
+    ${LIBHTTPSERVER_INCLUDE_DIR}
     )
 
 target_include_directories(AutoDash.Lighting SYSTEM PRIVATE
@@ -54,4 +57,6 @@ target_link_libraries(AutoDash.Lighting
     ${Qt5Svg_LIBRARIES}
     ${Qt5Widgets_LIBRARIES}
     ${Qt5WebEngineWidgets_LIBRARIES}
+    ${LIBHTTPSERVER_LIBRARIES}
+    -lmicrohttpd
     )

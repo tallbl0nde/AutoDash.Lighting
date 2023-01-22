@@ -13,7 +13,7 @@ LightingFrame::LightingFrame(Template::IHeaderPage * parent) : QWidget(parent->w
     webEngineView->page()->setBackgroundColor(Qt::transparent);
     webEngineView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     webEngineView->setStyleSheet("background: transparent");
-    webEngineView->setUrl(QUrl("https://localhost:1234"));
+    webEngineView->setUrl(QUrl("http://localhost:1234"));
 
     parent->setMainWidget(webEngineView);
 }
