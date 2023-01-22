@@ -6,6 +6,8 @@ WebServer::WebServer(const int port) : server(httpserver::create_webserver(port)
     // Initialize resources
     this->resources.push_back(new Resource::Index());
     this->server.register_resource("/", this->resources[this->resources.size() - 1]);
+    this->server.register_resource("/index.css", this->resources[this->resources.size() - 1]);
+    this->server.register_resource("/index.js", this->resources[this->resources.size() - 1]);
 
     this->server.start();
 }
