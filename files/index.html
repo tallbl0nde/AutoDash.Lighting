@@ -2,10 +2,43 @@
 <html>
     <head>
         <link rel="stylesheet" href="index.css"/>
-    </head>
-    <body>
-        <h1 class="test" id="heading">Hello World!</h1>
+        <link href="bootstrap.min.css" rel="stylesheet"/>
 
-        <script src="index.js"/>
+    </head>
+    <body id="body">
+        <div class="container" id="mainContainer">
+            <div class="row h-100">
+                <!-- Sidebar -->
+                <div class="col-4" id="sidebar">
+                    <span class="sidebar-entry sidebar-active" onclick="sidebarEntryClicked(this)">Solid</span>
+                    <!-- <span class="sidebar-entry" onclick="sidebarEntryClicked(this)">Fade</span>
+                    <span class="sidebar-entry" onclick="sidebarEntryClicked(this)">Gradient</span> -->
+                </div>
+
+                <!-- Main pane -->
+                <div class="col-8" id="main">
+                    <!-- Solid colour -->
+                    <div class="main-entry main-active" id="mainSolid">
+                        <div class="d-flex flex-wrap justify-content-around p-2">
+                            <div class="rounded-colour red" onclick="solidColourClicked(this)"></div>
+                            <div class="rounded-colour orange" onclick="solidColourClicked(this)"></div>
+                            <div class="rounded-colour yellow" onclick="solidColourClicked(this)"></div>
+                            <div class="rounded-colour yellow-green" onclick="solidColourClicked(this)"></div>
+                            <div class="rounded-colour green" onclick="solidColourClicked(this)"></div>
+                            <div class="rounded-colour light-blue" onclick="solidColourClicked(this)"></div>
+                            <div class="rounded-colour blue" onclick="solidColourClicked(this)"></div>
+                            <div class="rounded-colour purple" onclick="solidColourClicked(this)"></div>
+                            <div class="rounded-colour pink" onclick="solidColourClicked(this)"></div>
+                            <div class="rounded-colour white" onclick="solidColourClicked(this)"></div>
+                            <div class="rounded-colour black" onclick="solidColourClicked(this)"></div>
+                            <div class="rounded-colour custom" onclick="solidColourClicked(this)"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="bootstrap.min.js"></script>
+        <script src="index.js"></script>
     </body>
 </html>

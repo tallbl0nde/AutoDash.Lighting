@@ -1,3 +1,136 @@
-.test {
+@font-face {
+    font-family: 'Rubik';
+    src: url('Rubik.ttf');
+}
+
+#body {
+    background-color: transparent;
     color: white;
+    font-family: 'Rubik' !important;
+    height: 100vh;
+    width: 100vw;
+    user-select: none;
+}
+
+#mainContainer {
+    margin: 0;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    height: 100%;
+    min-width: 100%;
+    width: 100%;
+}
+
+#main {
+
+}
+
+.main-active {
+    display: inline !important;
+}
+
+.main-entry {
+    display: none;
+}
+
+#sidebar {
+    border-right: 1px grey solid;
+    height: 100%;
+    padding-left: 1em;
+}
+
+.sidebar-active {
+    font-weight: bold;
+}
+
+.sidebar-entry {
+    display: block;
+    font-size: 1.5em;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+}
+
+.rounded-colour {
+    border-radius: 5px;
+    height: 5em;
+    width: 5em !important;
+    margin: 0.5em;
+}
+
+.rounded-colour > * {
+    font-size: 2em;
+    padding: 0.5em;
+    padding-top: 0.3em;
+}
+
+.red {
+    background-color: red;
+    color: darkred;
+    border: 3px darkred solid;
+}
+
+.orange {
+    background-color: orange;
+    color: chocolate;
+    border: 3px chocolate solid;
+}
+
+.yellow {
+    background-color: yellow;
+    color: goldenrod;
+    border: 3px goldenrod solid;
+}
+
+.yellow-green {
+    background-color: chartreuse;
+    color: forestgreen;
+    border: 3px forestgreen solid;
+}
+
+.green {
+    background-color: lime;
+    color: forestgreen;
+    border: 3px forestgreen solid;
+}
+
+.light-blue {
+    background-color: aqua;
+    color: deepskyblue;
+    border: 3px deepskyblue solid;
+}
+
+.blue {
+    background-color: blue;
+    color: midnightblue;
+    border: 3px midnightblue solid;
+}
+
+.purple {
+    background-color: darkviolet;
+    color: indigo;
+    border: 3px indigo solid;
+}
+
+.pink {
+    background-color: magenta;
+    color: darkorchid;
+    border: 3px darkorchid solid;
+}
+
+.white {
+    background-color: white;
+    color: lightgrey;
+    border: 3px lightgrey solid;
+}
+
+.black {
+    background-color: black;
+    color: rgb(40, 40, 40);
+    border: 3px rgb(40, 40, 40) solid;
+}
+
+.custom {
+    background-color: lightgrey;
+    color: darkgrey;
+    border: 3px darkgrey dashed;
 }
